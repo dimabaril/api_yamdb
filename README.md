@@ -1,41 +1,43 @@
-###YamDB API
-## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
-* [Documentation](#Documentation)
-## General info
-This project is simple social network about reviewing all titles in the workd :smiley_cat: with API.
-	
-## Technologies
-Project is created with:
- * requests==2.26.0
- * django==2.2.16
- * djangorestframework==3.12.4
- * PyJWT==2.1.0
- * pytest==6.2.4
- * pytest-django==4.4.0
- * pytest-pythonpath==0.7.3
- * djangorestframework-simplejwt==4.7.2
- * django-filter==21.1
-
-	
-## Setup
-To run this project, install it locally using npm:
-
+# YamDB API, отзовик.
+## Описание.
+Проект собирает **отзывы (Review)** пользователей на **произведения (Titles)**. Произведения делятся на категории: "Книги", "Фильмы", "Музыка". Список **категорий (Category)** может быть расширен администратором.
+Сами произведения в не хранятся, здесь нельзя посмотреть фильм или послушать музыку.  
+В каждой категории есть **произведения**: книги, фильмы или музыка. Например, в категории "Книги" могут быть произведения "Винни Пух и все-все-все" и "Марсианские хроники", а в категории "Музыка" — песня "Давеча" группы "Насекомые" и вторая сюита Баха.  
+Произведению может быть присвоен **жанр** (**Genre**) из списка предустановленных (например, «Сказка», «Рок» или «Артхаус»). Новые жанры может создавать только администратор.  
+Пользователи оставляют к произведениям текстовые **отзывы** (**Review**) и ставят произведению оценку в диапазоне от одного до десяти (целое число); из пользовательских оценок формируется усреднённая оценка произведения — **рейтинг** (целое число).  
+## Технологии
+- Python 3.7
+- Django 2.2.19
+- JWT
+## Установка
+- Клонируйте репозиторий и перейти в него:
 ```
-$ cd ../api_yamdb
-$ py venv vnev
-$ . venv/Scrpits/Activate (. bin/Scripts/Activate)
-$ pip install -r 'requarements.txt'
-$ cd api_yamdb
-$ py manage.py runserver
-
-**optianly you can import DB from csv files**
-**type py manage.py importcsv --help for more info**
-
-$ py manage.py importcsv
+git clone git@github.com:dimabaril/api_yamdb.git
+cd api_yamdb
 ```
-
-## Documentation
-You can find all paths with description in .../redoc
+- Создайте и активируйте виртуальное окружение:
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+- Установите зависимости из файла requirements.txt
+```
+pip install -r requirements.txt
+``` 
+- Выполните миграции:
+```
+cd api_yamdb
+python3 manage.py migrate
+```
+- Запустите проект:
+```
+python3 manage.py runserver
+```
+- Импортируйте базу:
+```
+python3 manage.py importcsv
+```
+## Документация API
+Описание всех запросов API доступно по адресу: ip_address_of_project/redoc
+### Авторы
+Барилкин Дмитрий
