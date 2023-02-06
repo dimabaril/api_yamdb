@@ -39,5 +39,5 @@ python3 manage.py importcsv
 ```
 ## Документация API
 Описание всех запросов API доступно по адресу: ip_address_of_project/redoc
-### Авторы
+## Авторы
 Барилкин Дмитрий
